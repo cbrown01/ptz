@@ -1,0 +1,86 @@
+# Focus Areas Example - Sanitized Data
+# This is example data to demonstrate the schema
+
+weekly_focus:
+  area: Project Alpha
+  week_of: 2026-01-26
+
+focus_areas:
+  - slug: project-alpha
+    name: Project Alpha
+    tasks:
+      - slug: implement-us-a1b2c3d
+        name: Implement user authentication
+        status: in_progress
+        status_since: 2026-01-27
+        notes: Using OAuth 2.0 flow
+      - slug: write-api-do-e4f5g6h
+        name: Write API documentation
+        status: pending
+        status_since: 2026-01-26
+        due: 2026-02-01
+      - slug: review-secu-i7j8k9l
+        name: Review security requirements
+        status: done
+        status_since: 2026-01-25
+
+  - slug: team-management
+    name: Team Management
+    tasks:
+      - slug: schedule-11-m1n2o3p
+        name: Schedule 1:1 meetings
+        status: pending
+        status_since: 2026-01-26
+      - slug: prepare-qua-q4r5s6t
+        name: Prepare quarterly review
+        status: pending
+        status_since: 2026-01-20
+        due: 2026-02-15
+        notes: Collect metrics from dashboard
+
+  - slug: learning
+    name: Learning
+    tasks:
+      - slug: complete-ty-u7v8w9x
+        name: Complete TypeScript course
+        status: in_progress
+        status_since: 2026-01-24
+        notes: Module 5 of 8
+      - slug: read-system-y1z2a3b
+        name: Read system design book
+        status: pending
+        status_since: 2026-01-15
+
+  - slug: personal
+    name: Personal
+    tasks:
+      - slug: plan-vacati-c4d5e6f
+        name: Plan vacation
+        status: pending
+        status_since: 2026-01-10
+        due: 2026-02-28
+
+  - slug: home-improvement
+    name: Home Improvement
+    tasks:
+      - slug: research-pa-g7h8i9j
+        name: Research paint colors
+        status: pending
+        status_since: 2026-01-05
+
+  - slug: side-projects
+    name: Side Projects
+    tasks:
+      - slug: build-cli-t-k1l2m3n
+        name: Build CLI tool for notes
+        status: pending
+        status_since: 2025-12-15
+        notes: Low priority, when time permits
+
+time_off:
+  - start: 2026-02-14
+    end: 2026-02-16
+    description: Holiday weekend
+  - start: 2026-03-01
+    end: 2026-03-05
+    description: Vacation

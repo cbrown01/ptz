@@ -1,0 +1,27 @@
+---
+description: Instructions for working with the PTZ task management system
+alwaysApply: true
+---
+
+# PTZ - Personal Task Zen
+
+Always read and follow the instructions in `AGENTS.md` at the project root. It defines:
+
+- Your role as a productivity assistant
+- How to interact with the task management system
+- Rules for modifying data (never edit YAML directly, use the CLI script)
+- The user's specific schema and constraints (after init)
+
+## Key Points
+
+- Use `ptz.ts` (or `ptz.template.ts` if not set up) for all task modifications
+- Run with: `npx tsx ptz.ts <command>`
+- Reading data files directly is allowed for display purposes
+- If the system isn't set up, guide the user through the init skill
+
+## Getting Started
+
+If `ptz.ts` doesn't exist, the user needs to run the init process:
+> "Would you like me to help you set up your PTZ system?"
+
+Reference the `.cursor/skills/init/SKILL.md` for the guided setup process.

@@ -1,0 +1,31 @@
+# Simple List Example - Task Data
+
+tasks:
+  - id: review-pr-a1b2c3d
+    name: Review pull request
+    status: in_progress
+    created: 2026-01-27
+    notes: PR #142 for auth feature
+
+  - id: write-tests-e4f5g6h
+    name: Write unit tests for API
+    status: todo
+    due: 2026-02-01
+    created: 2026-01-26
+
+  - id: update-docs-i7j8k9l
+    name: Update README documentation
+    status: todo
+    created: 2026-01-25
+
+  - id: fix-bug-log-m1n2o3p
+    name: Fix login redirect bug
+    status: done
+    created: 2026-01-24
+
+  - id: deploy-stag-q4r5s6t
+    name: Deploy to staging
+    status: todo
+    due: 2026-01-30
+    created: 2026-01-26
+    notes: After PR merge
