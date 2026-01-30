@@ -21,7 +21,7 @@ If the system isn't set up yet, guide the user through the **init** skill first.
 
 ## Critical Rules
 
-1. **Never edit data files directly** - always use `ptz.ts` commands
+1. **Never edit task data files directly** - always use `ptz.ts` commands for task/priority data (e.g., `tasks.yaml`, `priorities.yaml`). Reference files like `contacts.yaml` or `glossary.yaml` can be edited directly.
 2. **Respect user's constraints** - check AGENTS.md for any WIP limits or rules
 3. **Run commands silently** - execute CLI commands and present results conversationally
 

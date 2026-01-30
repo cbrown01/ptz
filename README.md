@@ -40,16 +40,43 @@ The AI will guide you through:
 ```
 ptz/
 ├── ptz.template.ts       # Stub script - customize for your system
+├── ptz.ts                # Your customized script (generated, gitignored)
+├── *.yaml                # Your task data (gitignored)
 ├── package.json          # Dependencies
-├── AGENTS.md             # AI agent instructions (customize after init)
+├── AGENTS.md             # AI agent instructions
 ├── .cursor/
-│   ├── commands/         # Custom Cursor commands for quick access
+│   ├── commands/         # Custom Cursor commands
+│   │   └── ptz-show.md   # Quick dashboard command
 │   └── skills/
-│       └── init/         # Init skill for guided setup
+│       ├── init/         # Guided setup wizard
+│       ├── task-management/    # Core task operations
+│       ├── work-breakdown/     # Decompose large projects
+│       ├── contact-management/ # Optional: track people
+│       ├── glossary-management/# Optional: track terminology
+│       └── google-calendar-reader/ # Optional: calendar integration
 └── examples/
-    ├── focus-areas/      # Example: Category-based with weekly focus
-    └── simple-list/      # Example: Minimal flat task list
+    ├── focus-areas/      # Category-based with weekly focus
+    └── simple-list/      # Minimal flat task list
 ```
+
+## What Gets Committed
+
+PTZ separates framework code (shared) from personal data (private):
+
+| File | Committed? | Description |
+|------|:----------:|-------------|
+| `ptz.template.ts` | Yes | Template script for reference |
+| `ptz.ts` | No | Your customized CLI script |
+| `*.yaml` (root) | No | Your task/priority data |
+| `AGENTS.md` | Yes | Agent instructions (Part 2 is template) |
+| `.cursor/skills/*/SKILL.md` | Yes | Generic skill definitions |
+| `.cursor/skills/*/PERSONAL.md` | No | Your skill extensions |
+| `examples/` | Yes | Example configurations |
+
+This means you can:
+- Pull framework updates without losing your data
+- Keep your tasks and customizations private
+- Share improvements back to the framework
 
 ## Best Practices
 

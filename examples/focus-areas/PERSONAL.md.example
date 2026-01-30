@@ -1,0 +1,61 @@
+# Task Management - Personal Extensions (Example)
+
+> This is an example `PERSONAL.md` file for the focus-areas system.
+> Copy this to `.cursor/skills/task-management/PERSONAL.md` and customize it.
+
+## My Priority System
+
+I use a focus-area model with traffic light priorities:
+
+| Position | Color | Meaning |
+|----------|-------|---------|
+| #1 | Gold | Weekly focus (special attention) |
+| #2-3 | Green | Active priorities |
+| #4-5 | Yellow | Important but secondary |
+| #6+ | Red | Deferred until higher priorities clear |
+
+## My Commands
+
+| Command | Description |
+|---------|-------------|
+| `npx tsx ptz.ts show` | Dashboard with traffic light priorities |
+| `npx tsx ptz.ts set-weekly-focus <area>` | Set this week's focus (moves to #1) |
+| `npx tsx ptz.ts add-task <area> <task>` | Add task to a focus area |
+| `npx tsx ptz.ts update-task <area> <task> --status done` | Mark task complete |
+| `npx tsx ptz.ts reorder-focus <area> -p <n>` | Change focus area priority |
+| `npx tsx ptz.ts check` | Run integrity checks |
+
+## My Rules
+
+- **Maximum 3 in-progress tasks** across all focus areas
+- **No in-progress tasks in red zone** (position 6+) - these are deferred
+- **Stale task warnings** after 14 days in same status
+
+## My Data File
+
+`priorities.yaml` with this schema:
+
+```yaml
+weekly_focus:
+  area: "Focus Area Name"
+  week_of: 2026-01-26  # Monday of the week
+
+focus_areas:
+  - slug: area-slug
+    name: "Focus Area Name"
+    tasks:
+      - slug: task-slug
+        name: "Task description"
+        status: pending | in_progress | done | blocked
+        status_since: 2026-01-26
+        due: 2026-02-01      # Optional
+        notes: "Context"     # Optional
+```
+
+## Weekly Review Process
+
+Each Monday:
+1. Run `set-weekly-focus` to designate this week's main area
+2. Review red zone tasks - remove or promote as needed
+3. Check for stale tasks with `check` command
+4. Verify WIP limit is not exceeded

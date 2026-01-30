@@ -1,0 +1,43 @@
+# Task Management - Personal Extensions (Example)
+
+> This is an example `PERSONAL.md` file for the simple-list system.
+> Copy this to `.cursor/skills/task-management/PERSONAL.md` and customize it.
+
+## My Commands
+
+| Command | Description |
+|---------|-------------|
+| `npx tsx ptz.ts show` | Dashboard grouped by status |
+| `npx tsx ptz.ts add <name>` | Add a new task |
+| `npx tsx ptz.ts add <name> --due YYYY-MM-DD` | Add task with due date |
+| `npx tsx ptz.ts start <id>` | Mark task as in_progress |
+| `npx tsx ptz.ts done <id>` | Mark task as done |
+| `npx tsx ptz.ts remove <id>` | Remove a task |
+| `npx tsx ptz.ts list --status todo` | List only todo tasks |
+
+## My Data File
+
+`tasks.yaml` with this schema:
+
+```yaml
+tasks:
+  - id: task-abc1234
+    name: "Task description"
+    status: todo | in_progress | done
+    due: 2026-02-01      # Optional
+    notes: "Context"     # Optional
+    created: 2026-01-26
+```
+
+## My Workflow
+
+1. Add tasks as they come up
+2. Run `show` to see current state
+3. Use `start` when beginning work
+4. Use `done` when finished
+
+## Notes
+
+- Overdue tasks are highlighted in the dashboard
+- Tasks are grouped by status (in_progress, todo, done)
+- No WIP limits in this simple system

@@ -41,6 +41,7 @@ tasks:
 
 - `tasks.yaml` - Example data
 - `ptz.ts` - Full TypeScript implementation
+- `PERSONAL.md.example` - Example skill extension (copy to `.cursor/skills/task-management/PERSONAL.md`)
 
 ## When to Use This Approach
 

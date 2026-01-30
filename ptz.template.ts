@@ -77,7 +77,8 @@ function loadData(): Data {
     return { items: [] };
   }
   const content = fs.readFileSync(DATA_FILE, "utf-8");
-  return yaml.load(content) as Data;
+  // Use JSON_SCHEMA to prevent auto-parsing of dates as Date objects
+  return yaml.load(content, { schema: yaml.JSON_SCHEMA }) as Data;
 }
 
 /**
