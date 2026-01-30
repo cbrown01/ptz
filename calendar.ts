@@ -63,16 +63,47 @@ export function isCalendarConfigured(): boolean {
 // AUTHENTICATION
 // =============================================================================
 
+interface CredentialsFile {
+  installed?: {
+    client_id: string;
+    client_secret: string;
+    redirect_uris?: string[];
+  };
+  web?: {
+    client_id: string;
+    client_secret: string;
+    redirect_uris?: string[];
+  };
+}
+
+function loadClientCredentials(): { clientId: string; clientSecret: string } {
+  const content = fs.readFileSync(CREDENTIALS_FILE, "utf-8");
+  const creds: CredentialsFile = JSON.parse(content);
+  const installed = creds.installed || creds.web;
+  if (!installed) {
+    throw new Error("Invalid credentials.json format");
+  }
+  return {
+    clientId: installed.client_id,
+    clientSecret: installed.client_secret,
+  };
+}
+
 async function loadSavedToken(): Promise<OAuth2Client | null> {
-  if (!fs.existsSync(TOKEN_FILE)) {
+  if (!fs.existsSync(TOKEN_FILE) || !fs.existsSync(CREDENTIALS_FILE)) {
     return null;
   }
 
   try {
+    // Load client credentials so we can refresh the token
+    const { clientId, clientSecret } = loadClientCredentials();
+    const auth = new google.auth.OAuth2(clientId, clientSecret);
+
+    // Load saved token
     const content = fs.readFileSync(TOKEN_FILE, "utf-8");
     const credentials = JSON.parse(content);
-    const auth = new google.auth.OAuth2();
     auth.setCredentials(credentials);
+
     return auth;
   } catch {
     return null;
@@ -95,20 +126,34 @@ async function getCalendarService(): Promise<calendar_v3.Calendar> {
   // Try to load existing token
   let auth = await loadSavedToken();
 
-  // Check if token is valid
   if (auth) {
-    try {
-      // Test the credentials
-      const calendar = google.calendar({ version: "v3", auth });
-      await calendar.calendarList.list({ maxResults: 1 });
-      return calendar;
-    } catch {
-      // Token expired or invalid, need to re-authenticate
-      auth = null;
+    // Check if token needs refresh
+    const credentials = auth.credentials;
+    const expiryDate = credentials.expiry_date;
+    const isExpired = expiryDate && Date.now() >= expiryDate - 60000; // 1 min buffer
+
+    if (isExpired && credentials.refresh_token) {
+      try {
+        // Refresh the token
+        const { credentials: newCredentials } = await auth.refreshAccessToken();
+        auth.setCredentials(newCredentials);
+        await saveToken(auth);
+      } catch {
+        // Refresh failed, need to re-authenticate
+        auth = null;
+      }
+    } else if (!isExpired) {
+      // Token is still valid
+      return google.calendar({ version: "v3", auth });
     }
   }
 
-  // Authenticate
+  // If we still have valid auth after refresh, use it
+  if (auth) {
+    return google.calendar({ version: "v3", auth });
+  }
+
+  // Need fresh authentication
   auth = await authenticate({
     scopes: SCOPES,
     keyfilePath: CREDENTIALS_FILE,

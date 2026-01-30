@@ -68,6 +68,36 @@ Check the `examples/` directory for different organizational approaches:
 - **focus-areas/** - Category-based system with a weekly focus area, traffic-light priorities, and WIP limits
 - **simple-list/** - Minimal flat task list with just status and due dates
 
+## Extending Skills
+
+PTZ includes several AI skills in `.cursor/skills/`. These skills are **generic and should not be modified directly**. Instead, extend them with a `PERSONAL.md` file:
+
+```
+.cursor/skills/task-management/
+├── SKILL.md      # Generic (do not modify)
+└── PERSONAL.md   # Your extensions (create this)
+```
+
+### Creating a PERSONAL.md
+
+Add a `PERSONAL.md` file to any skill directory to customize it for your system:
+
+```markdown
+# Task Management - Personal Extensions
+
+## My Commands
+
+- `npx tsx ptz.ts show` - Dashboard with traffic light priorities
+- `npx tsx ptz.ts set-weekly-focus <area>` - Set this week's focus
+
+## My Rules
+
+- Maximum 3 in-progress tasks at a time
+- Only top 5 focus areas can have in-progress tasks
+```
+
+Your `PERSONAL.md` files are gitignored, keeping your customizations private while the generic skills stay shareable.
+
 ## Using PTZ
 
 **The AI is your interface.** Just talk to it:

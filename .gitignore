@@ -29,5 +29,8 @@ __pycache__/
 # User's customized ptz.ts (generated from template)
 /ptz.ts
 
-# Legacy Python files (temporary, for v1.0 release)
+# Personal skill extensions (user-specific, not shared)
+.cursor/skills/**/PERSONAL.md
+
+# Legacy Python files
 personal/

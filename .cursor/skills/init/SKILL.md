@@ -228,3 +228,9 @@ Examples of user interactions:
 The AI translates these into CLI commands (`npx tsx ptz.ts add "Buy groceries"`, etc.) and presents the results conversationally.
 
 Users *can* run commands directly if they prefer, but this is not the primary experience.
+
+## Personal Extensions
+
+If `./PERSONAL.md` exists in this skill's directory, incorporate its contents as additional instructions specific to your init workflow.
+
+**Do not modify this SKILL.md file directly.** Create a `PERSONAL.md` file for your customizations instead.

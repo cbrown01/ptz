@@ -95,3 +95,9 @@ If the user wants contact tracking during init:
 3. Mention it in AGENTS.md
 
 This is an optional feature - not all users will want it.
+
+## Personal Extensions
+
+If `./PERSONAL.md` exists in this skill's directory, incorporate its contents as additional instructions specific to your contacts workflow.
+
+**Do not modify this SKILL.md file directly.** Create a `PERSONAL.md` file for your customizations instead.

@@ -93,3 +93,9 @@ During init, offer calendar integration if the user:
 - Wants to plan tasks around availability
 
 This is optional - not all users will want it.
+
+## Personal Extensions
+
+If `./PERSONAL.md` exists in this skill's directory, incorporate its contents as additional instructions specific to your calendar workflow.
+
+**Do not modify this SKILL.md file directly.** Create a `PERSONAL.md` file for your customizations instead.

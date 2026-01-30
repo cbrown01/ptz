@@ -133,3 +133,9 @@ The `credentials.json` file is missing or in wrong location.
 | `token.json` | Cached access token | No (user-specific) |
 
 Add both to `.gitignore`.
+
+## Personal Extensions
+
+If `./PERSONAL.md` exists in this skill's directory, incorporate its contents as additional instructions specific to your OAuth setup.
+
+**Do not modify this SKILL.md file directly.** Create a `PERSONAL.md` file for your customizations instead.

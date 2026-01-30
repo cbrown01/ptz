@@ -238,3 +238,9 @@ This skill produces tasks that go into the user's PTZ system. Check `AGENTS.md` 
 - Status values and workflow
 
 For full system documentation, see [AGENTS.md](../../../AGENTS.md).
+
+## Personal Extensions
+
+If `./PERSONAL.md` exists in this skill's directory, incorporate its contents as additional instructions specific to your system.
+
+**Do not modify this SKILL.md file directly.** Create a `PERSONAL.md` file for your customizations instead.

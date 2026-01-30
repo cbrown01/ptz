@@ -45,7 +45,59 @@ ptz/
 ├── <data-file>.yaml        # User's task data (gitignored)
 ├── AGENTS.md               # This file
 ├── ptz.template.ts         # Template for reference
+├── .cursor/skills/         # AI skills (see below)
 └── examples/               # Example configurations
+```
+
+## Skill Extension Pattern
+
+Skills in `.cursor/skills/` are **generic and should not be modified directly**. Instead, extend them with personal customizations:
+
+```
+.cursor/skills/<skill-name>/
+├── SKILL.md      # Generic skill (committed, do not modify)
+└── PERSONAL.md   # Your extensions (gitignored, optional)
+```
+
+### How It Works
+
+1. Each `SKILL.md` file contains generic instructions
+2. If `PERSONAL.md` exists in the same directory, the AI incorporates its contents as additional instructions
+3. Your `PERSONAL.md` files are gitignored (personal and private)
+
+### When to Create PERSONAL.md
+
+Create a `PERSONAL.md` when you need:
+
+- Specific commands for your task system
+- Custom rules or constraints
+- Priority models or workflows unique to your setup
+- References to your context files (glossary, contacts)
+
+### Example
+
+`.cursor/skills/task-management/PERSONAL.md`:
+
+```markdown
+# Task Management - Personal Extensions
+
+## My Priority System
+
+I use a focus-area model with traffic light priorities:
+- Position 1 (Gold): Weekly focus
+- Positions 2-3 (Green): Active priorities
+- Positions 4-5 (Yellow): Secondary
+- Position 6+ (Red): Deferred
+
+## My Commands
+
+- `npx tsx ptz.ts show` - Dashboard view
+- `npx tsx ptz.ts set-weekly-focus <area>` - Set weekly focus
+
+## My Rules
+
+- Maximum 3 in-progress tasks
+- No in-progress tasks in red zone (position 6+)
 ```
 
 ## Critical Rules

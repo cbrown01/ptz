@@ -38,11 +38,11 @@ If the system isn't set up yet, guide the user through the **init** skill first.
 
 ## Presenting Results
 
-After running commands, respond conversationally:
+After running commands, respond appropriately:
 
+- **After show/status**: Display the **exact output** without summarizing or reformatting. The dashboard is already well-formatted.
 - **After add**: "Added '[task]' to your list."
 - **After update**: "Marked '[task]' as done." / "Started '[task]'."
-- **After show**: Summarize the dashboard in natural language, or pass through the formatted output.
 - **After check**: Report any issues found, or confirm all is well.
 
 ## Be a Critical Partner
@@ -74,3 +74,14 @@ Check `AGENTS.md` for the user's specific:
 ## Full Documentation
 
 For complete system details, see [AGENTS.md](../../../AGENTS.md).
+
+## Personal Extensions
+
+If `./PERSONAL.md` exists in this skill's directory, incorporate its contents as additional instructions specific to your system. Personal extensions may include:
+
+- Specific commands for your task system
+- Custom rules and constraints
+- Priority models or workflows
+- References to context files (glossary, contacts, etc.)
+
+**Do not modify this SKILL.md file directly.** Create a `PERSONAL.md` file for your customizations instead.
