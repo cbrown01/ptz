@@ -43,6 +43,7 @@ ptz/
 ├── package.json          # Dependencies
 ├── AGENTS.md             # AI agent instructions (customize after init)
 ├── .cursor/
+│   ├── commands/         # Custom Cursor commands for quick access
 │   └── skills/
 │       └── init/         # Init skill for guided setup
 └── examples/
@@ -97,6 +98,48 @@ Add a `PERSONAL.md` file to any skill directory to customize it for your system:
 ```
 
 Your `PERSONAL.md` files are gitignored, keeping your customizations private while the generic skills stay shareable.
+
+## Custom Commands
+
+PTZ includes custom Cursor commands in `.cursor/commands/` for common workflows. These provide quick keyboard shortcuts to AI-assisted features.
+
+### Available Commands
+
+| Command | Description |
+| ------- | ----------- |
+| `ptz-show` | Display your current task status and priorities dashboard |
+
+### Using Custom Commands
+
+1. Open the command palette (`Cmd+Shift+P` / `Ctrl+Shift+P`)
+2. Type the command name (e.g., "ptz-show")
+3. The AI will execute the command and show results
+
+### Creating Your Own Commands
+
+This is a great pattern to adopt for frequently-used workflows. To add a custom command:
+
+1. Create a new `.md` file in `.cursor/commands/`
+2. Name it descriptively (e.g., `ptz-add-task.md`, `ptz-weekly-review.md`)
+3. Add a title and description of what the command should do
+
+Example command file:
+
+```markdown
+# Ptz Weekly Review
+
+Run my weekly review process:
+1. Show all tasks completed this week
+2. Review overdue tasks and ask if they should be removed or rescheduled
+3. Suggest priorities for next week based on due dates
+```
+
+**Good candidates for custom commands:**
+
+- Dashboard views (`ptz-show`)
+- Review workflows (`ptz-weekly-review`, `ptz-daily-standup`)
+- Batch operations (`ptz-cleanup-done`, `ptz-archive-old`)
+- Reports (`ptz-overdue`, `ptz-by-area`)
 
 ## Using PTZ
 
