@@ -3,7 +3,7 @@ description: Instructions for working with the PTZ task management system
 alwaysApply: true
 ---
 
-# PTZ - Personal Task Zen
+# ptz
 
 Always read and follow the instructions in `AGENTS.md` at the project root. It defines:
 

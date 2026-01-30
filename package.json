@@ -1,7 +1,7 @@
 {
   "name": "ptz",
-  "version": "1.0.0",
-  "description": "Personal Task Zen - A flexible productivity framework",
+  "version": "1.0.1",
+  "description": "A flexible productivity framework",
   "type": "module",
   "scripts": {
     "ptz": "tsx ptz.ts"

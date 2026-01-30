@@ -1,4 +1,4 @@
-# PTZ - Personal Task Zen
+# ptz
 
 A flexible productivity framework that helps you design and maintain your own task management system with AI assistance.
 

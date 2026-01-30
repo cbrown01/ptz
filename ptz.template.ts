@@ -1,6 +1,6 @@
 #!/usr/bin/env npx tsx
 /**
- * PTZ - Personal Task Zen
+ * ptz
  *
  * This is a template script with stubbed-out functions. Customize it to fit
  * your personal organizational system. The init skill will help you design
@@ -286,7 +286,7 @@ function check(): void {
 
 function printHelp(): void {
   console.log(`
-PTZ - Personal Task Zen
+ptz
 
 Usage: npx tsx ptz.ts <command> [options]
 
