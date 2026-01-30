@@ -26,8 +26,8 @@ requirements.txt
 __pycache__/
 *.pyc
 
-# Personal directory (user-specific data, skills, scripts - not shared)
-personal/
-
-# User's customized ptz.ts (generated from template, root only)
+# User's customized ptz.ts (generated from template)
 /ptz.ts
+
+# Legacy Python files (temporary, for v1.0 release)
+personal/

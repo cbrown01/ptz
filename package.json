@@ -7,6 +7,8 @@
     "ptz": "tsx ptz.ts"
   },
   "dependencies": {
+    "@google-cloud/local-auth": "^3.0.1",
+    "googleapis": "^170.1.0",
     "js-yaml": "^4.1.0"
   },
   "devDependencies": {
